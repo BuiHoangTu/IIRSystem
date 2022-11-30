@@ -40,5 +40,7 @@ int main(int argc, char* argv[]){
         buffer_next(&tBuffer_index, 1, T_BUFFER_SIZE);
     }
 
+    free(tBuffer)
+
 }
 
