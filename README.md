@@ -1,5 +1,5 @@
-##For Linux Users 
+## For Linux Users 
     `./run.sh`
 
-##For Windows Users
+## For Windows Users
     `.\run.bat`
