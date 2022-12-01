@@ -23,7 +23,9 @@ double calYn(double xn, double * tBuffer, int tBuffer_index){
 
 //////////////////////////////////////////////////MAIN//////////////////////////////////////////////////
 int main(int argc, char* argv[]){
-    double* tBuffer = calloc(T_BUFFER_SIZE, sizeof(double));
+    double dTBuffer[T_BUFFER_SIZE] = {0};
+    double* tBuffer;
+    tBuffer = dTBuffer; //calloc(T_BUFFER_SIZE, sizeof(double));
     int tBuffer_index = 0;
 
     double xn = 1, yn;
@@ -40,7 +42,7 @@ int main(int argc, char* argv[]){
         buffer_next(&tBuffer_index, 1, T_BUFFER_SIZE);
     }
 
-    free(tBuffer);
+    //free(tBuffer);
 
 }
 
