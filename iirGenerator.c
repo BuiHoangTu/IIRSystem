@@ -6,14 +6,14 @@
 //#define H_SIZE 3
 #define T_BUFFER_SIZE 2
 
-inline int index_next(int current_index, int step, int buffer_size){
+int index_next(int current_index, int step, int buffer_size){
     current_index += step;
     while(current_index < 0) current_index = buffer_size + current_index;
-    current_index = current_index % current_index;
+    current_index = current_index % buffer_size;
     return current_index;
 }
 
-inline void index_move(int* index, int step, int buffer_size){
+void index_move(int* index, int step, int buffer_size){
     *index = index_next(*index, step, buffer_size);
 }
 
