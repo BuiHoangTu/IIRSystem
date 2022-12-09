@@ -1,5 +1,9 @@
 ## For Linux Users 
-    ./run.sh
+```console
+./run.sh
+```
 
 ## For Windows Users
-    .\run.bat
+```console
+.\run.bat
+``` 
