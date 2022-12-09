@@ -1,2 +1,3 @@
+Build/
 iirGenerator*
 !iirGenerator.c
