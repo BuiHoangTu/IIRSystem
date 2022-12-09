@@ -1,5 +1,5 @@
 ## For Linux Users 
-    `./run.sh`
+    ./run.sh
 
 ## For Windows Users
-    `.\run.bat`
+    .\run.bat
