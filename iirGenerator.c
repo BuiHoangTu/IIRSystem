@@ -18,9 +18,9 @@ inline void index_move(int* index, int step, int buffer_size){
 }
 
 double calYn(double xn, double * tBuffer, int t_index){
-    int t_1 = index_next(t_index, -1, T_BUFFER_SIZE);
-    int t_2 = index_next(t_index, -2, T_BUFFER_SIZE);
-    double yn = xn + sqrt(2)*tBuffer[t_1] - 1* tBuffer[t_2];
+    int n_1 = index_next(t_index, -1, T_BUFFER_SIZE);
+    int n_2 = index_next(t_index, -2, T_BUFFER_SIZE);
+    double yn = xn + sqrt(2)*tBuffer[n_1] - tBuffer[n_2];
     
     return yn;
 }
