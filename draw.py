@@ -2,6 +2,7 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 
+#read 100 outputs from c process
 i = 0
 input_f = []
 while(i < 100):
