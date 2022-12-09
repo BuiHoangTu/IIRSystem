@@ -6,17 +6,21 @@
 //#define H_SIZE 3
 #define T_BUFFER_SIZE 2
 
-void buffer_next(int* buffer_index, int step, int buffer_size){
-    int tmpi = *buffer_index + step;
-    if(tmpi < 0) tmpi = 0 - tmpi;
-    *buffer_index = tmpi % buffer_size;
+inline int index_next(int current_index, int step, int buffer_size){
+    current_index += step;
+    while(current_index < 0) current_index = buffer_size + current_index;
+    current_index = current_index % current_index;
+    return current_index;
 }
 
-double calYn(double xn, double * tBuffer, int tBuffer_index){
-    buffer_next(&tBuffer_index,-1,T_BUFFER_SIZE);
-    double yn = xn + sqrt(2)*tBuffer[tBuffer_index];
-    buffer_next(&tBuffer_index,-1,T_BUFFER_SIZE);
-    yn += -1*tBuffer[tBuffer_index];
+inline void index_move(int* index, int step, int buffer_size){
+    *index = index_next(*index, step, buffer_size);
+}
+
+double calYn(double xn, double * tBuffer, int t_index){
+    int t_1 = index_next(t_index, -1, T_BUFFER_SIZE);
+    int t_2 = index_next(t_index, -2, T_BUFFER_SIZE);
+    double yn = xn + sqrt(2)*tBuffer[t_1] - 1* tBuffer[t_2];
     
     return yn;
 }
@@ -32,14 +36,14 @@ int main(int argc, char* argv[]){
     yn = calYn(xn, tBuffer, tBuffer_index);
     printf("%lf\n", yn);
     tBuffer[tBuffer_index] = yn;
-    buffer_next(&tBuffer_index, 1, T_BUFFER_SIZE);
+    index_move(&tBuffer_index, 1, T_BUFFER_SIZE);
 
     xn = 0;
     for (int i = 0; i < 100; i++){
         yn = calYn(xn, tBuffer, tBuffer_index);
         printf("%lf\n", yn);
         tBuffer[tBuffer_index] = yn;
-        buffer_next(&tBuffer_index, 1, T_BUFFER_SIZE);
+        index_move(&tBuffer_index, 1, T_BUFFER_SIZE);
     }
 
     //free(tBuffer);
